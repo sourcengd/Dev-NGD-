@@ -102,7 +102,7 @@ async def admin_cbs(_, query: CallbackQuery):
         await stream_on(query.message.chat.id)
         await pytgcalls.resume_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"⎊ تم استئناف التشغيل ⚡\n \n⎊ بواسطة : {query.from_user.mention} 🥀",
+            text=f" تم استئناف التشغيل 🍻\n \n بواسطة : {query.from_user.mention} 🥀",
             reply_markup=close_key,
         )
 
@@ -114,7 +114,7 @@ async def admin_cbs(_, query: CallbackQuery):
         await stream_off(query.message.chat.id)
         await pytgcalls.pause_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"⎊ تم ايقاف التشغيل مؤقتاً 🥺\n \n⎊ بواسطة : {query.from_user.mention} 🥀",
+            text=f" تم ايقاف التشغيل مؤقتاً 🥺\n \n بواسطة : {query.from_user.mention} 🥀",
             reply_markup=close_key,
         )
 
@@ -125,7 +125,7 @@ async def admin_cbs(_, query: CallbackQuery):
         except:
             pass
         await query.message.reply_text(
-            text=f"⎊ تم ايقاف التشغيل 🥺\n \n⎊ بواسطة : {query.from_user.mention}",
+            text=f" تم ايقاف التشغيل 🥺\n \n بواسطة : {query.from_user.mention}",
             reply_markup=close_key,
         )
         await query.message.delete()
@@ -137,7 +137,7 @@ async def admin_cbs(_, query: CallbackQuery):
                 await _clear_(query.message.chat.id)
                 await pytgcalls.leave_group_call(query.message.chat.id)
                 await query.message.reply_text(
-                    text=f"⎊ تخطي الاغنية 🥺\n \n⎊ بواسطة : {query.from_user.mention} 🥀\n\n**⎊ لا يوجد اغنية تالية في قائمة الانتظار ** {query.message.chat.title}, **ترك دردشة الفيديو**",
+                    text=f" تخطي الاغنية 🥺\n \n بواسطة : {query.from_user.mention} 🥀\n\n** لا يوجد اغنية تالية في قائمة الانتظار ** {query.message.chat.title}, **ترك دردشة الفيديو**",
                     reply_markup=close_key,
                 )
                 return await query.message.delete()
@@ -165,12 +165,12 @@ async def admin_cbs(_, query: CallbackQuery):
 
             img = await gen_thumb(videoid, user_id)
             await query.edit_message_text(
-                text=f"⎊ تم تخطي التشغيل 🥺\n \n⎊ بواسطة : {query.from_user.mention}",
+                text=f" تم تخطي التشغيل 🥺\n \n بواسطة : {query.from_user.mention}",
                 reply_markup=close_key,
             )
             return await query.message.reply_photo(
                 photo=img,
-                caption=f"**⎊ بدء تشغيل**\n\n⎊ **العنوان :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **المدة :** `{duration}` دقيقة\n⎊ **مطلوبة من :** {req_by}",
+                caption=f"** بدء تشغيل**\n\n **العنوان :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n **المدة :** `{duration}` دقيقة\n **مطلوبة من :** {req_by}",
                 reply_markup=buttons,
             )
 
@@ -186,15 +186,15 @@ async def unban_ass(_, CallbackQuery):
             await app.unban_chat_member(int(chat_id), ASS_ID)
         except:
             return await CallbackQuery.answer(
-                "⎊ فشل الحساب المساعد محظور",
+                " فشل الحساب المساعد محظور",
                 show_alert=True,
             )
         return await CallbackQuery.edit_message_text(
-            f"⎊ {ASS_NAME} تم رفع الحظر بنجاح بواسطة {CallbackQuery.from_user.mention}.\n\⎊ البوت يعمل الان ⚡"
+            f" {ASS_NAME} تم رفع الحظر بنجاح بواسطة {CallbackQuery.from_user.mention}.\n\ البوت يعمل الان 🍻"
         )
     else:
         return await CallbackQuery.answer(
-            "⎊ ليس لدي أذونات لإلغاء حظر المستخدمين في هذه الدردشة ",
+            " ليس لدي أذونات لإلغاء حظر المستخدمين في هذه الدردشة ",
             show_alert=True,
         )
 
@@ -208,7 +208,7 @@ async def help_menu(_, query: CallbackQuery):
 
     try:
         await query.edit_message_text(
-            text=f"⎊ مرحبا {query.from_user.first_name} \n\n⎊ اختر من الازرار في الاسفل ⬇️ ",
+            text=f" مرحبا {query.from_user.first_name} \n\n اختر من الازرار في الاسفل ⬇️ ",
             reply_markup=InlineKeyboardMarkup(helpmenu),
         )
     except Exception as e:
