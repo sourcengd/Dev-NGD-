@@ -41,7 +41,7 @@ async def skip_str(_, message: Message):
             await _clear_(message.chat.id)
             await pytgcalls.leave_group_call(message.chat.id)
             await message.reply_text(
-                text=f"⎊ الـتـالـي ⚡\n \n⎊ بواسطة : {message.from_user.mention} 🥀\n\n**⎊ مفيش اغاني** {message.chat.title}, **🕷**",
+                text=f" الـتـالـي 🧚🏻‍♂️\n \n بواسطة : {message.from_user.mention} 🥀\n\n** مفيش اغاني** {message.chat.title}, **🍻**",
                 reply_markup=close_key,
             )
         except:
@@ -66,12 +66,12 @@ async def skip_str(_, message: Message):
             return await pytgcalls.leave_group_call(message.chat.id)
 
         await message.reply_text(
-            text=f"⎊ الـتـالي ⚡\n \n⎊ بواسطة : {message.from_user.mention} 🥀\n\n**⎊ مفيش اغاني** {message.chat.title}, **🕷**",
+            text=f" الـتـالي 🧚🏻‍♂️\n \n بواسطة : {message.from_user.mention} 🥀\n\n** مفيش اغاني** {message.chat.title}, **🍻**",
             reply_markup=close_key,
         )
         img = await gen_thumb(videoid, user_id)
         return await message.reply_photo(
             photo=img,
-            caption=f"‌‌‏‌‌‏‌‌‏≪⊶⌯━‌‌‏♢ ⦓ ᥉᥆ᥙᖇᥴᥱ ƚᥱƚ᥆ ⦔ ♢━‌‌‏⌯⊷≫\n**⎊ تـم الـتـشـغـيـل ✅**\n\n⎊ **العنوان :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **المدة :** `{duration}` دقيقه\n⎊ **بواسطه :** {req_by}\n‌‌‏‌‌‏≪⊶⌯━‌‌‏♢ ⦓ ᥉᥆ᥙᖇᥴᥱ ƚᥱƚ᥆ ⦔ ♢━‌‌‏⌯⊷≫",
+            caption=f"‌‌‏‌‌‏‌‌‏\n** تـم الـتـشـغـيـل ✅**\n\n **العنوان :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n **المدة :** `{duration}` دقيقه\n **بواسطه :** {req_by}\n‌‌‏‌‌‏",
             reply_markup=buttons,
         )
